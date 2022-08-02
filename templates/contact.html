@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact us{% endblock %}
+
+{% block header %} <h1>Contact us</h1> {% endblock %}
+
+{% block content %}
+
+<p>
+    Please tell us any problems you may have come across, or any suggestions you may have. Thank you for your time.
+</p>
+
+<form action="" method="POST" novalidate class="form">
+
+    {{ form.hidden_tag() }}
+
+    {{ form.suggestion.label }}
+    {{ form.suggestion() }} 
+    {% for error in form.suggestion.errors %}
+        {{ error }}
+    {% endfor %}
+
+    <br>
+    {{ form.submit }}
+
+</form>
+
+
+{% endblock %}

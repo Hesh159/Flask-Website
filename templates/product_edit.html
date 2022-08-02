@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+
+{% block title %}Edit {{ previous['item'] }}{% endblock %}
+
+{% block header %} <h1>Updating info for {{ previous['item'] }}</h1> {% endblock %}
+
+{% block content %} 
+
+<h1>Updating info for {{ previous['item'] }}</h1>
+
+<form action="" method="POST" novalidate class="form">
+
+    {{ form.hidden_tag() }}
+    
+
+    {{ form.newName.label }}
+    {{ form.newName(value = previous['item']) }}
+    {% for error in form.newName.errors %}
+        {{ error }}
+    {% endfor %}
+    Previous name: {{ previous['item'] }}
+
+    <br>
+    {{ form.newPrice.label }}
+    {{ form.newPrice(value = previous['price']) }}
+    {% for error in form.newPrice.errors %}
+        {{ error }}
+    {% endfor %}
+    Previous price: €{{ previous['price'] }}
+
+    <br>
+    {{ form.newDescription.label }}
+    {{ form.newDescription(value = previous['description']) }}
+    {% for error in form.newDescription.errors %}
+        {{ error }}
+    {% endfor %}
+    Previous description: {{ previous['description'] }}
+
+    <br>
+    {{ form.submit() }}
+{% endblock %}

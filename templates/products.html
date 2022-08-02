@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+
+{% block title %}Products{% endblock %}
+
+{% block header %} <h1>All products, Admin view</h1> {% endblock %}
+
+{% block content %} 
+
+<table class="booze_table">
+    <tr>
+        <th>Item code</th>
+        <th>Item name</th>
+        <th>Item price</th>
+        <th>Item stock</th>
+        <th>Item description</th>
+    </tr>
+    {% for item in items %}
+    <tr>
+        <td>{{ item['item_id'] }}</td>
+        <td>{{ item['item'] }}</td>
+        <td>{{ item['price'] }} </td>
+        <td>{{ item['stock'] }} </td>
+        <td>{{ item['description'] }}</td>
+        <td><a href="{{ url_for('product_edit', item_id = item['item_id']) }} ">Edit product info</a></td>
+        <td><a href="{{ url_for('stock_edit', item_id = item['item_id']) }}">Edit Stock</a></td>
+        <td><a href="{{ url_for('delete_product', item_id = item['item_id']) }}">Delete product</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<p>
+    <a href="{{ url_for('new_product') }}">Add new product</a>
+</p>
+
+{% endblock %}

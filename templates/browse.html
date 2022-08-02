@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Booze{% endblock %}
+
+{% block header %}
+<h1>Our booze and brews</h1>
+{% endblock %}
+
+{% block content %}
+
+
+<table class="booze_table">
+    <tr>
+        <th>Booze</th>
+        <th>Price</th>
+        <th>Further details</th>
+    </tr>
+    {% for item in item %}
+        <tr>
+            <td>{{ item['item'] }}</td>
+            <td>€{{ item['price'] }}</td>
+            <td> <a href="{{ url_for('item', item_id = item['item_id']) }}">See details</a></td>
+        </tr>
+    {% endfor %} 
+</table>
+
+{% endblock %}

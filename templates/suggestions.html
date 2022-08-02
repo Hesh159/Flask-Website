@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}User suggestions{% endblock %}
+
+{% block header %} <h1>User suggestions</h1> {% endblock %}
+
+{% block content %}
+
+<table class="booze_table">
+    <tr>
+        <th>Suggestion number</th>
+        <th>User id</th>
+        <th>Suggestion</th>
+    </tr>
+    {% for suggestion in suggestions %}
+    <tr>
+        <td>{{ suggestion['suggestion_number'] }}</td>
+        <td>{{ suggestion['user_id'] }}</td>
+        <td>{{ suggestion['suggestion'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

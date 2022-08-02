@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Review{% endblock %}
+
+{% block content %}
+
+<form action="" method="POST" novalidate class="form">
+
+    {{ form.hidden_tag() }}
+
+    {{ form.rating.label }}
+    {{ form.rating() }}
+    {% for error in form.rating.errors %}
+        {{ error }}
+    {% endfor %}
+
+    <br>
+    {{ form.review.label }}
+    {{ form.review() }} 
+    {% for error in form.review.errors %}
+        {{ error }}
+    {% endfor %}
+
+    <br>
+    {{ form.submit }}
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Token{% endblock %}
+
+{% block header %} <h1>Token confirmation</h1> {% endblock %}
+
+{% block content %}
+
+<p>
+    Copy the token sent to your email into the field below
+</p>
+
+<form action="" method="POST" novalidate class="form">
+
+    {{ form.hidden_tag() }}
+
+    {{ form.token.label }}
+    {{ form.token() }}
+    {% for error in form.token.errors %}
+        {{ error }}
+    {% endfor %}
+
+    <br>
+    {{ form.submit() }}
+
+</form>
+{% endblock %}

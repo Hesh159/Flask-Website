@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Your cart{% endblock %}
+
+{% block header %} <h1>Your Cart</h1> {% endblock %}
+
+{% block content %}
+
+{{ error }}
+
+
+<table class="booze_table">
+    {% for item_id in cart %}
+    <tr>
+        <td>{{ names[item_id] }}</td>
+        <td>Amount: {{ cart[item_id] }}</td>
+        <td>{{ price[item_id] }}</td>
+        <td><a href="{{ url_for('remove_from_cart', item_id = item_id, amount = cart[item_id]) }}">Remove</a></td>
+    </tr>
+    {% endfor %} 
+</table>
+<p>
+    Your total is €{{ total }}
+</p>
+<form action="" method="POST" novalidate class="form">
+
+    {{ form.hidden_tag() }}
+   
+    {{ form.address.label }}
+    {{ form.address() }} 
+    {% for error in form.address.errors %}
+        {{ error }}
+    {% endfor %}
+
+    <br>
+    {{ form.submit }}
+
+
+</form>
+
+
+{% endblock %}

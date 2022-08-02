@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Main page{% endblock %}
+
+{% block header %} <h1>Welcome</h1> {% endblock %}
+
+{% block content %} 
+
+<p>
+    Welcome to Bobby's Boozers, your one stop shop for all your boozing needs.
+</p>
+<p>
+    Whether you desire a relaxing night in with the family, or crave a late-night booze-cruisin' rampage through the city, our store offers the finest crafts and 
+    brews available to suit your needs.
+</p>
+<p>
+    From bottles of beer for the kids, to bottles of wood alcohol for the veteran boozer,
+    our store has something for the entire family.
+</p>
+<p>
+    Not to mention all our merchandise is delivered straight to your door,
+    free of any shipping charge. 
+</p>
+<p>
+    <a class="booze" href="{{ url_for('browse') }}">Browse our world famous brews</a>
+</p>
+
+{% endblock %}
+
+{% block footer %}
+<footer>
+
+    <a class="footer" href="{{ url_for('contact') }}">Contact us</a>
+
+</footer>
+
+{% endblock %}

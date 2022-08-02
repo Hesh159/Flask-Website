@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Reviews{% endblock %}
+
+{% block header %} <h1> Reviews for {{ item['item'] }}</h1> {% endblock %}
+
+{% block content %}
+
+<h2>Viewing {{ total }} reviews</h2>
+
+{% for review in reviews %} 
+<h3>{{ review['user_id'] }}</h3>
+<p>
+    {{ review['rating'] }}/ 5
+</p>
+<p>
+    {{ review['review'] }}
+</p>
+{% endfor %}
+
+{% endblock %}

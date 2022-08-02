@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+
+{% block title %}Stock edit{% endblock %}
+
+{% block header %} <h1>Updating stock for {{ name[0] }}</h1> {% endblock %}
+
+{% block content %} 
+
+
+<form action="" method="POST" novalidate class="form">
+
+    {{ form.hidden_tag() }}
+    
+    {{ form.stockEdit.label }}
+    {{ form.stockEdit() }}
+    {% for error in form.stockEdit.errors %}
+        {{ error }}
+    {% endfor %}
+
+    <br>
+    {{ form.submit() }}
+
+    <br>
+    {{ error }}
+{% endblock %}

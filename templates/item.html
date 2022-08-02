@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ item['item'] }}{% endblock %}
+
+{% block header %} <h1>{{ item['item'] }}</h1> {% endblock %}
+
+{% block content %}
+
+<h1>{{ item['item'] }}</h1>
+<p>
+    Average user score: {{ score }}
+</p>
+<p>
+    Price: €{{ item['price'] }}
+</p>
+<p>
+    {{ item['description'] }}
+</p>
+
+{% if form %}
+<form action="" method="POST" novalidate class="form">
+
+    {{ form.hidden_tag() }}
+    
+    {{ form.amount.label }}
+    {{ form.amount() }}
+    {% for error in form.amount.errors %}
+        {{ error }}
+    {% endfor %}
+
+    {{ form.submit() }}
+</form>
+{% endif %}
+<p>
+    {{ stock }}
+</p>
+<p>
+    <a href="{{ url_for('reviews', item_id = item['item_id']) }}">View reviews ({{ total }})</a>
+</p>
+<p>
+    <a href="{{ url_for('review', item_id = item['item_id']) }}">Leave a review</a>
+</p>
+{% endblock %} 
